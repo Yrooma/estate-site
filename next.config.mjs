@@ -3,6 +3,8 @@ const nextConfig = {
   // الإعدادات الحالية
   images: {
     domains: ['www.alamridhafer.com'],
+    unoptimized: false, // يمكنك تعيين هذا إلى true إذا كنت لا تريد تحسين الصور
+
   },
   
   // إضافة إعدادات SEO

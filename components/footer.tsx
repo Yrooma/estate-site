@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
 
-// ... existing imports ...
-
 export default function Footer() {
   return (
     <footer className="bg-[#122F30] text-white">

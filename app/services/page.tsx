@@ -2,7 +2,7 @@ import { ServiceCard } from "@/components/service-card"
 import { services } from "@/app/data/services"
 
 export default function Services() {
-  const websiteUrl = "https://www.example.com"
+  const websiteUrl = "https://www.alamridhafer.com"
 
   return (
     <div className="container mx-auto px-4 py-8">
