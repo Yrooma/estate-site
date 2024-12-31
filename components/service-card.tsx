@@ -1,44 +1,45 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Share2 } from "lucide-react"
-import Link from "next/link"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import Image from 'next/image'
+import { TypeIcon as type, LucideIcon, Share2 } from 'lucide-react'
+import Link from 'next/link'
+import { ServiceCardActions } from './service-card-actions'
 
 interface ServiceCardProps {
+  icon: LucideIcon
   title: string
   description: string
-  icon?: React.ReactNode
+  content: string
+  imageUrl: string
   compact?: boolean
+  websiteUrl: string
   hideShare?: boolean
-  websiteUrl?: string
+
 }
 
-export function ServiceCard({ 
-  title, 
-  description, 
-  icon, 
-  compact = false,
-  hideShare = false,
-  websiteUrl 
-}: ServiceCardProps) {
+export function ServiceCard({ icon: Icon, title, description, content, imageUrl, compact = false, websiteUrl, hideShare = false }: ServiceCardProps) {
   return (
-    <Card className="h-full">
-      <CardHeader>
-        {icon && <div className="w-12 h-12 text-[#215657]">{icon}</div>}
-        <CardTitle className="text-xl">{title}</CardTitle>
+    <Card className="w-full h-full flex flex-col">
+      <CardHeader className="relative pb-0">
+        <Image
+          src={imageUrl}
+          alt={title}
+          width={300}
+          height={200}
+          className="w-full h-32 object-cover rounded-t-lg"
+        />
+        <div className="flex items-center space-x-2 space-x-reverse mt-4">
+          <Icon className="w-6 h-6" />
+          <CardTitle className="text-lg">{title}</CardTitle>
+        </div>
       </CardHeader>
-      <CardContent>
-        <p className={`text-gray-600 ${compact ? 'line-clamp-2' : ''}`}>
-          {description}
-        </p>
-        {!hideShare && websiteUrl && (
-          <Link 
-            href={websiteUrl} 
-            className="inline-flex items-center mt-4 text-[#215657] hover:text-[#399597]"
-          >
-            <Share2 className="w-4 h-4 mr-2" />
-            مشاركة
-          </Link>
-        )}
+      <CardContent className="flex-grow">
+        <p className="text-sm text-muted-foreground">{description}</p>
+        {!compact && <p className="mt-2">{content}</p>}
       </CardContent>
+      <CardFooter className="flex flex-col space-y-2">
+        <ServiceCardActions title={title} description={description} websiteUrl={websiteUrl} compact={compact} hideShare={hideShare} />
+      </CardFooter>
     </Card>
   )
 }
