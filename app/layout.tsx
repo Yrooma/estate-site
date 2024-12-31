@@ -15,17 +15,10 @@ export const metadata = {
     title: 'ظافر أبو حربة العمري للعقارات | وسيط عقاري معتمد',
     description: 'خبراء في إدارة الأملاك والعقارات في السعودية. خدمات التوثيق العقاري والاستشارات في مكة والطائف.',
     type: 'website',
-    url: 'https://alamridhafer.com',
+    //url: 'https://alamridhafer.com',
     locale: 'ar_SA',
     siteName: 'ظافر أبو حربة العمري للعقارات',
-    images: [
-      {
-        url: '/og.png',
-        width: 960,
-        height: 504,
-        alt: 'ظافر أبو حربة العمري للعقارات',
-      },
-    ],
+    images: '/og.png',
   },
   icons: {
     icon: '/icon-D.svg',
