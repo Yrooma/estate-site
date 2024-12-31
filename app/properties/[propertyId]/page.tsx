@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function PropertyPage({ params }: { params: { propertyId: string } }) {
+{/*export default function PropertyPage({ params }: { params: { propertyId: string } }) {
   return (
     <div className="container mx-auto px-6 py-12">
       <h1 className="text-4xl font-bold mb-8 text-center">تفاصيل العقار</h1>
@@ -29,5 +29,5 @@ export default function PropertyPage({ params }: { params: { propertyId: string 
     </div>
   )
 }
-
+*/}
 
