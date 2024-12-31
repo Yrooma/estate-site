@@ -1,101 +1,176 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import { services } from "@/app/data/services"
+import { testimonials } from "@/app/data/testimonials"
+import { ServiceCard } from "@/components/service-card"
+import { TestimonialCard } from "@/components/testimonial-card" 
+import { ContactCTA } from "@/components/contact-cta"
+import Image from 'next/image'
+{/*  import { properties } from "@/app/data/properties"*/}
+{/*  import { PropertyCard } from "@/app/components/property-card"*/}
+
+export const metadata = {
+  title: 'الرئيسية | ظافر أبو حربة العمري للعقارات',
+  description: 'وسيط عقاري معتمد في مكة والطائف مع خبرة 15 عاماً. نقدم خدمات التوثيق العقاري، إدارة الأملاك، والاستشارات العقارية.',
+}
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="container mx-auto px-4 py-8 space-y-12 sm:space-y-16">
+      <section className="text-center">
+        <div className="mb-8">
+          <Image
+            src="/icon-D-T.svg"
+            alt="شعار ظافر أبو حربة العمري"
+            width={120}
+            height={120}
+            className="mx-auto"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <article className="prose lg:prose-xl mx-auto">
+          <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            ظافر أبو حربة العمري
+          </h1>
+        </article>
+        <div className="bg-gradient-to-r from-amber-50 via-amber-100 to-amber-50 p-4 rounded-lg max-w-2xl mx-auto mb-6">
+          <h2 className="text-xl font-semibold text-amber-800">وسيطك المعتمد ومستشارك المؤتمن!</h2>
+        </div>
+        <p className="text-xl md:text-2xl mb-4">خبرة أكثر من 15 عامًا في العقار وإدارة الأملاك بمكة والطائف</p>
+        <p className="text-lg mb-6">نقدم خدمات التوثيق، العقود، إدارة الأملاك، والخدمات العامة بسرعة وكفاءة مع استشارات عقارية موثوقة.</p>
+        {/* إضافة حاوية التوثيق */}
+        <div className="mb-8 p-4 bg-[#399597] rounded-lg max-w-md mx-auto">
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/fal.svg"
+            alt="شعار الهيئة العامة للعقار"
+            width={200}
+            height={30}
+            className="mx-auto mb-3"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <p className="text-sm text-white">رخصة وساطة عقارية رقم 1100020459</p>
+        </div>
+        <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
+          <Button asChild className=" text-white w-full sm:w-auto">
+            <Link href="/services">خدماتنا</Link>
+          </Button>
+          <Button variant="outline" asChild className="w-full sm:w-auto">
+            <Link href="/contact">تواصل معنا</Link>
+          </Button>
+        </div>
+      </section>
+      
+      <div className="my-32">
+        <hr className="border-t border-gray-200 w-1/2 mx-auto opacity-30" />
+      </div>
+
+      <section className="max-w-5xl mx-auto">
+        <h2 className="text-xl md:text-2xl font-bold mb-4 text-center">خدماتنا</h2>
+        <div className="relative">
+          <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-4 sm:pb-0 scrollbar-hide">
+            {services.map((service, index) => (
+              <div className="w-[280px] sm:w-auto flex-shrink-0">
+                <ServiceCard 
+                  key={index} 
+                  {...service} 
+                  compact 
+                  hideShare={true}
+                  websiteUrl="https://example.com" 
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="my-32">
+        <hr className="border-t border-gray-200 w-1/2 mx-auto opacity-30" />
+      </div>
+
+      <section className="bg-[#215657] hover:bg-[#122F30] transition-colors duration-300 p-6 rounded-lg text-white relative">
+        <div className="flex justify-center mb-4">
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/icon-L-T.svg"
+            alt="شعار ظافر أبو حربة العمري"
+            width={40}
+            height={40}
+            className="mx-auto"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">لماذا تختار ظافر أبو حربة العمري؟</h2>
+        <ul className="space-y-2">
+          <li className="flex items-center">
+            <span className="mr-2 text-[#D4AF37]">✓</span>
+            خبرة تزيد عن 15 عامًا في سوق العقار.
+          </li>
+          <li className="flex items-center">
+            <span className="mr-2 text-[#D4AF37]">✓</span>
+            سرعة ودقة في تنفيذ الخدمات.
+          </li>
+          <li className="flex items-center">
+            <span className="mr-2 text-[#D4AF37]">✓</span>
+            تغطية مميزة لمكة والطائف.
+          </li>
+          <li className="flex items-center">
+            <span className="mr-2 text-[#D4AF37]">✓</span>
+            استشارات مبنية على خبرة طويلة.
+          </li>
+        </ul>
+      </section>
+
+ {/*  
+      <ClientWrapper>
+        <section>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">آخر العقارات</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {properties.slice(0, 3).map((property) => (
+              <PropertyCard key={property.id} {...property} compact />
+            ))}
+          </div>
+        </section>
+      </ClientWrapper>
+*/}
+
+<div className="my-32">
+        <hr className="border-t border-gray-200 w-1/2 mx-auto opacity-30" />
+      </div>
+
+      <section>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">شهادات العملاء</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.slice(0, 3).map((testimonial) => (
+            <TestimonialCard key={testimonial.id} {...testimonial} />
+          ))}
+        </div>
+      </section>
+
+      <div className="my-32">
+        <hr className="border-t border-gray-200 w-1/2 mx-auto opacity-30" />
+      </div>
+
+      <section className="bg-[#215657] text-white p-6 rounded-lg">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">تحتاج خدمة؟ تواصل الآن!</h2>
+        <ContactCTA />
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "RealEstateAgent",
+            "name": "ظافر أبو حربة العمري للعقارات",
+            "description": "وسيط عقاري معتمد في مكة والطائف",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "مكة والطائف",
+              "addressCountry": "SA"
+            },
+            "license": "1100020459",
+            "areaServed": ["مكة", "الطائف"]
+          })
+        }}
+      />
     </div>
-  );
+  )
 }
+
