@@ -73,7 +73,7 @@ export default function Home() {
                   {...service} 
                   compact 
                   hideShare={true}
-                  websiteUrl="https://example.com" 
+                  websiteUrl="https://alamridhafer.com" 
                 />
               </div>
             ))}

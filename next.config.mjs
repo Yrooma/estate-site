@@ -2,7 +2,7 @@
 const nextConfig = {
   // الإعدادات الحالية
   images: {
-    domains: ['your-domain.com'],
+    domains: ['alamridhafer.com'],
   },
   
   // إضافة إعدادات SEO
