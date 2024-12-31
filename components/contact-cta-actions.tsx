@@ -10,11 +10,11 @@ interface ContactCTAActionsProps {
 
 export function ContactCTAActions({ compact = false }: ContactCTAActionsProps) {
   const handlePhoneClick = () => {
-    window.location.href = 'tel:+96652119915';
+    window.location.href = 'tel:+966552119915';
   };
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/96652119915', '_blank');
+    window.open('https://wa.me/966552119915', '_blank');
   };
 
   if (compact) {
