@@ -49,8 +49,6 @@ export default function Header() {
               {isMenuOpen ? <X /> : <Menu />}
             </Button>
           </div>
-          // ... existing code ...
-
 <div 
   ref={menuRef}
   className={`absolute md:relative top-full left-0 right-0 bg-white md:bg-transparent shadow-md md:shadow-none ${isMenuOpen ? 'block' : 'hidden'} md:block`}
