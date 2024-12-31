@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { services } from "@/app/data/services"
-import { testimonials } from "@/app/data/testimonials"
 import { ServiceCard } from "@/components/service-card"
-import { TestimonialCard } from "@/components/testimonial-card" 
+//import { testimonials } from "@/app/data/testimonials"
+//import { TestimonialCard } from "@/components/testimonial-card" 
 import { ContactCTA } from "@/components/contact-cta"
 import Image from 'next/image'
 {/*  import { properties } from "@/app/data/properties"*/}
