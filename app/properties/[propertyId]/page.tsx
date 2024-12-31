@@ -1,4 +1,4 @@
-{/*  import Image from 'next/image'
+import Image from 'next/image'
 
 export default function PropertyPage({ params }: { params: { propertyId: string } }) {
   return (
@@ -29,5 +29,5 @@ export default function PropertyPage({ params }: { params: { propertyId: string 
     </div>
   )
 }
-*/}
+
 
