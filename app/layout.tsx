@@ -17,6 +17,14 @@ export const metadata = {
     type: 'website',
     locale: 'ar_SA',
     siteName: 'ظافر أبو حربة العمري للعقارات',
+    images: [
+      {
+        url: '/og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ظافر أبو حربة العمري للعقارات',
+      },
+    ],
   },
   icons: {
     icon: '/icon-D.svg',
