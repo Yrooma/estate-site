@@ -68,9 +68,8 @@ export default function Home() {
         <div className="relative">
           <div className="flex overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-4 sm:pb-0 scrollbar-hide">
             {services.map((service, index) => (
-              <div className="w-[280px] sm:w-auto flex-shrink-0">
+              <div key={index} className="w-[280px] sm:w-auto flex-shrink-0">
                 <ServiceCard 
-                  key={index} 
                   {...service} 
                   compact 
                   hideShare={true}
