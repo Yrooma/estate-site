@@ -18,7 +18,7 @@ export function ServiceCardActions({ title, description, websiteUrl, compact = f
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent(`السلام عليكم، أحتاج خدمة ${title}`);
-    window.open(`https://wa.me/96652119915?text=${message}`, '_blank');
+    window.open(`https://wa.me/966552119915?text=${message}`, '_blank');
   };
 
   const handleShareClick = async () => {
