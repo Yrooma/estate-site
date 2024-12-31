@@ -1,11 +1,11 @@
 export const images = {
   services: {
-    documentation: '/images/services/imgd.jpg',
-    realEstateBrokerage: '/images/services/imgb.jpg',
-    propertyValuation: '/images/services/imgc.jpg',
-    propertyManagement: '/images/services/imgp.jpg',
-    generalServices: '/images/services/imgm.jpg',
-    realEstateConsultancy: '/images/services/imgp.jpg',
+    documentation: '/images/service/imgd.jpg',
+    realEstateBrokerage: '/images/service/imgb.jpg',
+    propertyValuation: '/images/service/imgc.jpg',
+    propertyManagement: '/images/service/imgp.jpg',
+    generalServices: '/images/service/imgm.jpg',
+    realEstateConsultancy: '/images/service/imgp.jpg',
   },
   properties: {
     property1: '/images/properties/property1.jpg',
