@@ -49,32 +49,56 @@ export default function Header() {
               {isMenuOpen ? <X /> : <Menu />}
             </Button>
           </div>
-          <div 
-            ref={menuRef}
-            className={`absolute md:relative top-full left-0 right-0 bg-white md:bg-transparent shadow-md md:shadow-none ${isMenuOpen ? 'block' : 'hidden'} md:block`}
-            onMouseDown={() => setCanListenForOutsideClick(false)}
-          >
-            <div className="flex flex-col md:flex-row md:space-x-4 md:space-x-reverse">
-              <Button variant="ghost" asChild className="justify-start md:justify-center">
-                <Link href="/">الرئيسية</Link>
-              </Button>
-              <Button variant="ghost" asChild className="justify-start md:justify-center">
-                <Link href="/about">من نحن</Link>
-              </Button>
-              <Button variant="ghost" asChild className="justify-start md:justify-center">
-                <Link href="/services">خدماتنا</Link>
-              </Button>
-              {/*   <Button variant="ghost" asChild className="justify-start md:justify-center">
-                <Link href="/properties">العقارات</Link>
-              </Button>*/}
-              <Button variant="ghost" asChild className="justify-start md:justify-center">
-                <Link href="/blog">المدونة</Link>
-              </Button>
-              <Button variant="ghost" asChild className="justify-start md:justify-center">
-                <Link href="/contact">تواصل معنا</Link>
-              </Button>
-            </div>
-          </div>
+          // ... existing code ...
+
+<div 
+  ref={menuRef}
+  className={`absolute md:relative top-full left-0 right-0 bg-white md:bg-transparent shadow-md md:shadow-none ${isMenuOpen ? 'block' : 'hidden'} md:block`}
+  onMouseDown={() => setCanListenForOutsideClick(false)}
+>
+  <div className="flex flex-col md:flex-row md:space-x-4 md:space-x-reverse">
+    <Button 
+      variant="ghost" 
+      asChild 
+      className="justify-start md:justify-center md:border-none border-b border-gray-100"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      <Link href="/">الرئيسية</Link>
+    </Button>
+    <Button 
+      variant="ghost" 
+      asChild 
+      className="justify-start md:justify-center md:border-none border-b border-gray-100"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      <Link href="/about">من نحن</Link>
+    </Button>
+    <Button 
+      variant="ghost" 
+      asChild 
+      className="justify-start md:justify-center md:border-none border-b border-gray-100"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      <Link href="/services">خدماتنا</Link>
+    </Button>
+    <Button 
+      variant="ghost" 
+      asChild 
+      className="justify-start md:justify-center md:border-none border-b border-gray-100"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      <Link href="/blog">المدونة</Link>
+    </Button>
+    <Button 
+      variant="ghost" 
+      asChild 
+      className="justify-start md:justify-center md:border-none"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      <Link href="/contact">تواصل معنا</Link>
+    </Button>
+  </div>
+</div>
         </div>
       </nav>
     </header>

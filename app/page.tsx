@@ -128,7 +128,7 @@ export default function Home() {
         </section>
       </ClientWrapper>
 */}
-
+{/*
 <div className="my-32">
         <hr className="border-t border-gray-200 w-1/2 mx-auto opacity-30" />
       </div>
@@ -140,7 +140,7 @@ export default function Home() {
             <TestimonialCard key={testimonial.id} {...testimonial} />
           ))}
         </div>
-      </section>
+      </section>*/}
 
       <div className="my-32">
         <hr className="border-t border-gray-200 w-1/2 mx-auto opacity-30" />
