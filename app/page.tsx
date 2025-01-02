@@ -30,8 +30,8 @@ export default function Home() {
         </div>
         <article className="prose lg:prose-xl mx-auto">
           <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            أبو عمر للعقارات
-            <span className="block text-base mt-2">(ظافر أبو حربة العمري)</span>
+            مؤسسة أبو عمر العقارية
+            <span className="block text-base font-light mt-2">(ظافر أبو حربة العمري)</span>
           </h1>
         </article>
         <div className="bg-gradient-to-r from-amber-50 via-amber-100 to-amber-50 p-4 rounded-lg max-w-2xl mx-auto mb-6">

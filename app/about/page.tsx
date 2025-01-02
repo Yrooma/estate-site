@@ -14,7 +14,7 @@ export default function About() {
           className="mx-auto mb-6"
           priority
         />
-        <h1 className="text-4xl font-bold mb-4">ظافر أبو حربة العمري</h1>
+        <h1 className="text-4xl font-bold mb-4">مؤسسة أبو عمر العقارية</h1>
         <div className="bg-gradient-to-r from-amber-50 via-amber-100 to-amber-50 p-4 rounded-lg max-w-2xl mx-auto mb-6">
           <h2 className="text-xl font-semibold text-amber-800">وسيط عقاري معتمد من الهيئة العامة للعقار</h2>
         </div>
