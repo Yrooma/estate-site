@@ -33,7 +33,7 @@ export default function Header() {
               height={40}
               className="w-10 h-10"
             />
-            <span className="text-xl ">ظافر أبو حربة العمري</span>
+            <span className="text-xl ">مؤسسة أبو عمر العقارية</span>
           </Link>
           <div className="md:hidden">
             <Button

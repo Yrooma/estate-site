@@ -2,19 +2,37 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { getAllPosts } from '@/lib/blog'
+import { Badge } from "@/components/ui/badge"
+import { useState } from 'react'
 
 export const metadata = {
-  title: 'المدونة - ظافر العمري',
+  title: 'الفوائد العقارية - أبو عمر للعقار',
   description: 'مقالات ومعلومات عن العقارات والاستثمار العقاري في مكة والطائف'
 }
 
 export default async function Blog() {
   const posts = await getAllPosts()
-  
+  const allCategories = Array.from(
+    new Set(
+      posts.flatMap(post => post.categories || [])
+    )
+  )
   return (
     <div className="container mx-auto px-6 py-12">
-      <h1 className="text-4xl font-bold mb-8 text-center">المدونة</h1>
-      
+      <h1 className="text-4xl font-bold mb-8 text-center">الفوائد العقارية</h1>
+       {/* قسم التصنيفات */}
+       <div className="mb-8 flex flex-wrap gap-2 justify-center">
+        {allCategories.map((category) => (
+          <Badge 
+            key={category}
+            variant="secondary"
+            className="cursor-pointer hover:bg-gray-200"
+          >
+            {category}
+          </Badge>
+        ))}
+      </div>
+        
       {posts.length === 0 ? (
         <p className="text-center text-gray-600">سيتم إضافة المقالات قريباً</p>
       ) : (

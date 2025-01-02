@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://alamridhafer.com'
+  const baseUrl = 'https://www.alamridhafer.com'
   
   // قائمة الصفحات الثابتة
   const staticPages = [

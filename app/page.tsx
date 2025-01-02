@@ -10,7 +10,7 @@ import Image from 'next/image'
 {/*  import { PropertyCard } from "@/app/components/property-card"*/}
 
 export const metadata = {
-  title: 'الرئيسية | ظافر أبو حربة العمري للعقارات',
+  title: 'الرئيسية | أبو عمر للعقار',
   description: 'وسيط عقاري معتمد في مكة والطائف مع خبرة 15 عاماً. نقدم خدمات التوثيق العقاري، إدارة الأملاك، والاستشارات العقارية.',
 }
 
@@ -30,7 +30,8 @@ export default function Home() {
         </div>
         <article className="prose lg:prose-xl mx-auto">
           <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            ظافر أبو حربة العمري
+            أبو عمر للعقارات
+            <span className="block text-base mt-2">(ظافر أبو حربة العمري)</span>
           </h1>
         </article>
         <div className="bg-gradient-to-r from-amber-50 via-amber-100 to-amber-50 p-4 rounded-lg max-w-2xl mx-auto mb-6">
@@ -95,7 +96,7 @@ export default function Home() {
             className="mx-auto"
           />
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">لماذا تختار ظافر أبو حربة العمري؟</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">لماذا تختار مؤسسة أبو عمر العقارية؟</h2>
         <ul className="space-y-2">
           <li className="flex items-center">
             <span className="mr-2 text-[#D4AF37]">✓</span>
@@ -157,7 +158,7 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RealEstateAgent",
-            "name": "ظافر أبو حربة العمري للعقارات",
+            "name": "أبو عمر للعقارات",
             "description": "وسيط عقاري معتمد في مكة والطائف",
             "address": {
               "@type": "PostalAddress",
@@ -165,7 +166,7 @@ export default function Home() {
               "addressCountry": "SA"
             },
             "license": "1100020459",
-            "areaServed": ["مكة", "الطائف"]
+            "areaServed": ["مكة المكرمة", "الطائف"]
           })
         }}
       />

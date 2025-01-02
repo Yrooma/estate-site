@@ -22,7 +22,7 @@ export function ServiceCardActions({ title, description, websiteUrl, compact = f
   };
 
   const handleShareClick = async () => {
-    const shareText = `خدمة ${title} من مؤسسة ظافر العقارية - ${description} ${websiteUrl}`;
+    const shareText = `خدمة ${title} من مؤسسة أبو عمر العقارية - ${description} `;
     
     if (navigator.share) {
       try {
