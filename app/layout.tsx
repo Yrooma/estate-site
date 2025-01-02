@@ -3,8 +3,14 @@ import { Inter } from 'next/font/google'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import ScrollToTopButton from '@/components/scroll-to-top-button'
+import type { Metadata, Viewport } from 'next'
 
-const inter = Inter({ subsets: ['latin'] })
+
+// هذا السطر يقوم باستيراد خط Inter وهو خط لاتيني يستخدم للغة الإنجليزية
+// بما أن موقعنا باللغة العربية، نحتاج لاستخدام خط عربي بدلاً منه
+// يمكننا استخدام خط Noto Kufi Arabic مثلاً:
+import { Noto_Kufi_Arabic } from 'next/font/google'
+const arabic = Noto_Kufi_Arabic({ subsets: ['arabic'] })
 
 export const metadata = {
   title: 'أبو عمر للعقار | وسيط عقاري معتمد في مكة والطائف',
@@ -24,11 +30,15 @@ export const metadata = {
     icon: '/icon-D.svg',
     apple: '/icon-D.svg',
   },
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   alternates: {
     canonical: 'https://alamridhafer.com',
   },
+}
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({
@@ -59,7 +69,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body className={`${arabic.className} min-h-screen flex flex-col`}>
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

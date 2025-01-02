@@ -30,7 +30,7 @@ export default function Home() {
         </div>
         <article className="prose lg:prose-xl mx-auto">
           <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            مؤسسة أبو عمر العقارية
+            مؤسسة أبو عمر العقارية 
             <span className="block text-base font-light mt-2">(ظافر أبو حربة العمري)</span>
           </h1>
         </article>
