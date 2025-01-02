@@ -85,7 +85,7 @@ export default function Header() {
       className="justify-start md:justify-center md:border-none border-b border-gray-100"
       onClick={() => setIsMenuOpen(false)}
     >
-      <Link href="/blog">المدونة</Link>
+      <Link href="/blog">الفوائد</Link>
     </Button>
     <Button 
       variant="ghost" 

@@ -11,15 +11,32 @@ interface BlogCardProps {
   post: BlogPost
 }
 
-const sharePost = async (title: string, slug: string) => {
+const sharePost = async (post: BlogPost) => {
   if (navigator.share) {
     try {
       await navigator.share({
-        title,
-        url: `${window.location.origin}/blog/${slug}`,
+        title: post.title,
+        text: post.description,
+        url: `${window.location.origin}/blog/${post.slug}`,
       })
     } catch (err) {
       console.error('Error sharing:', err)
+    }
+  } else {
+    // Fallback for browsers that don't support Web Share API
+    const shareData = {
+      title: post.title,
+      text: post.description,
+      url: `${window.location.origin}/blog/${post.slug}`
+    }
+    
+    try {
+      await navigator.clipboard.writeText(
+        `${shareData.title}\n${shareData.text}\n${shareData.url}`
+      )
+      alert('تم نسخ رابط المقال!')
+    } catch (err) {
+      console.error('Error copying to clipboard:', err)
     }
   }
 }
@@ -63,8 +80,8 @@ export function BlogCard({ post }: BlogCardProps) {
             variant="ghost" 
             size="sm"
             className="text-gray-600"
-            onClick={() => sharePost(post.title, post.slug)}
-          >
+            onClick={() => sharePost(post)} // تم تحديث هذا السطر
+            >
             <Share2 className="h-4 w-4 ml-2" />
             مشاركة
           </Button>
