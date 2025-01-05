@@ -110,15 +110,6 @@ export async function getPost(slug: string) {
   }
 }
 
-// دالة مساعدة للتحقق من صحة البيانات
-function validatePostData(data: any): boolean {
-  return !!(
-    data.title &&
-    data.date &&
-    data.description &&
-    data.image
-  )
-}
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
