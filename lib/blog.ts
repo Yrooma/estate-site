@@ -7,23 +7,22 @@ import type { BlogPost } from '@/types/blog'
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
 export async function getAllPosts(): Promise<BlogPost[]> {
+  try {
+    // التحقق من وجود المجلد
+    if (!fs.existsSync(postsDirectory)) {
+      console.error('Blog directory not found:', postsDirectory)
+      return []
+    }
 
-  
-  if (!fs.existsSync(postsDirectory)) {
-   
-    return []
-  }
-
-  const files = fs.readdirSync(postsDirectory)
-  
-  const posts = await Promise.all(
-    files
-      .filter(fileName => fileName.endsWith('.mdx'))
-      .map(async (fileName) => {
-        const slug = fileName.replace('.mdx', '')
-        const fullPath = path.join(postsDirectory, fileName)
-        const fileContent = fs.readFileSync(fullPath, 'utf8')
-        const { data } = matter(fileContent)
+    const files = fs.readdirSync(postsDirectory)
+    
+    const posts = files
+      .filter(file => file.endsWith('.mdx'))
+      .map(file => {
+        const slug = file.replace(/\.mdx$/, '')
+        const fullPath = path.join(postsDirectory, file)
+        const fileContents = fs.readFileSync(fullPath, 'utf8')
+        const { data } = matter(fileContents)
         
         return {
           slug,
@@ -32,31 +31,30 @@ export async function getAllPosts(): Promise<BlogPost[]> {
           description: data.description,
           image: data.image,
           categories: data.categories || [],
-          author: data.author || 'ظافر العمري',
-          keywords: data.keywords || []
-        }
+          keywords: data.keywords || [],
+          author: data.author || 'ظافر العمري'
+        } as BlogPost
       })
-  )
-  
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+    return posts
+  } catch (error) {
+    console.error('Error fetching posts:', error)
+    return []
+  }
 }
 
-// جلب مقال محدد حسب المعرف
 export async function getPostBySlug(slug: string) {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.mdx`)
     
-    // التحقق من وجود الملف
     if (!fs.existsSync(fullPath)) {
       return null
     }
 
     const fileContent = fs.readFileSync(fullPath, 'utf8')
-    
-    // استخراج البيانات الوصفية والمحتوى
     const { data, content } = matter(fileContent)
     
-    // تحويل محتوى MDX
     const { content: mdxContent } = await compileMDX({
       source: content,
       options: { parseFrontmatter: true }
@@ -64,16 +62,67 @@ export async function getPostBySlug(slug: string) {
     
     return {
       content: mdxContent,
+      slug,
       title: data.title,
       date: data.date,
       description: data.description,
       image: data.image,
       categories: data.categories || [],
-      author: data.author || 'ظافر العمري',
-      keywords: data.keywords || []
+      keywords: data.keywords || [],
+      author: data.author || 'ظافر العمري'
     }
   } catch (error) {
     console.error(`Error loading post ${slug}:`, error)
     return null
   }
+}
+
+export async function getPost(slug: string) {
+  try {
+    const fullPath = path.join(postsDirectory, `${slug}.mdx`)
+    
+    if (!fs.existsSync(fullPath)) {
+      return null
+    }
+
+    const fileContent = fs.readFileSync(fullPath, 'utf8')
+    const { data, content } = matter(fileContent)
+    
+    const { content: mdxContent } = await compileMDX({
+      source: content,
+      options: { parseFrontmatter: true }
+    })
+    
+    return {
+      content: mdxContent,
+      slug,
+      title: data.title,
+      date: data.date,
+      description: data.description,
+      image: data.image,
+      categories: data.categories || [],
+      keywords: data.keywords || [],
+      author: data.author || 'ظافر العمري'
+    }
+  } catch (error) {
+    console.error('Error fetching post:', error)
+    return null
+  }
+}
+
+// دالة مساعدة للتحقق من صحة البيانات
+function validatePostData(data: any): boolean {
+  return !!(
+    data.title &&
+    data.date &&
+    data.description &&
+    data.image
+  )
+}
+
+export async function generateStaticParams() {
+  const posts = await getAllPosts()
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
 }

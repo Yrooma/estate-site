@@ -4,6 +4,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import ScrollToTopButton from '@/components/scroll-to-top-button'
 import type { Metadata, Viewport } from 'next'
+import { Breadcrumbs } from '@/components/breadcrumbs'
 
 
 // هذا السطر يقوم باستيراد خط Inter وهو خط لاتيني يستخدم للغة الإنجليزية
@@ -71,6 +72,7 @@ export default function RootLayout({
       </head>
       <body className={`${arabic.className} min-h-screen flex flex-col`}>
         <Header />
+        <Breadcrumbs />
         <main className="min-h-screen">{children}</main>
         <Footer />
         <ScrollToTopButton />

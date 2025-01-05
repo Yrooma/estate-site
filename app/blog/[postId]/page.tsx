@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { getPostBySlug, getAllPosts } from '@/lib/blog'
+import { getPost, getAllPosts } from '@/lib/blog'
 import { notFound } from 'next/navigation'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { postId: string } }) {
-  const post = await getPostBySlug(params.postId)
+  const post = await getPost(params.postId)
   if (!post) return {}
   
   return {
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: { postId: string } 
 }
 
 export default async function BlogPost({ params }: { params: { postId: string } }) {
-  const post = await getPostBySlug(params.postId)
+  const post = await getPost(params.postId)
   
   if (!post) {
     notFound()
