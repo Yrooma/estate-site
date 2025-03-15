@@ -9,7 +9,10 @@ const routeNameMap: { [key: string]: string } = {
   about: 'من نحن',
   blog: 'الفوائد',
   contact: 'تواصل معنا',
-  properties: 'العقارات'
+  properties: 'العقارات',
+  // إضافة ترجمات للمقالات
+  'ejar-platform-landlord-rights': 'منصة إيجار: حقوق المؤجر',
+  'tawtheeq-ejar-contract': 'توثيق عقد الإيجار'
 }
 
 export function Breadcrumbs() {
@@ -20,7 +23,20 @@ export function Breadcrumbs() {
   const breadcrumbs = pathSegments.map((segment, index) => {
     const href = `/${pathSegments.slice(0, index + 1).join('/')}`
     const isLast = index === pathSegments.length - 1
-    const name = routeNameMap[segment] || segment
+    
+    // استخدام الاسم من القاموس أو تنظيف الـ slug إذا كان مشفرًا
+    let name = routeNameMap[segment]
+    
+    if (!name) {
+      try {
+        // محاولة فك تشفير URL إذا كان يحتوي على أحرف مشفرة
+        const decodedSegment = decodeURIComponent(segment)
+        name = routeNameMap[decodedSegment] || decodedSegment
+      } catch (e) {
+        // إذا فشل فك التشفير، استخدم القيمة الأصلية
+        name = segment
+      }
+    }
 
     return {
       href,
@@ -77,4 +93,4 @@ export function Breadcrumbs() {
       />
     </>
   )
-} 
+}

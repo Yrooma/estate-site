@@ -6,6 +6,9 @@ const nextConfig = {
     unoptimized: false, // يمكنك تعيين هذا إلى true إذا كنت لا تريد تحسين الصور
   },
   
+  // ملاحظة: تم إزالة إعدادات i18n لأنها غير متوافقة مع Next.js 13+ App Router
+  // بدلاً من ذلك، نستخدم نظام التوجيه الجديد
+  
   // إضافة إعدادات SEO
   async headers() {
     return [
