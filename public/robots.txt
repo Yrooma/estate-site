@@ -5,4 +5,11 @@ Sitemap: https://alamridhafer.com/sitemap.xml
 # Disallow specific paths
 Disallow: /api/
 Disallow: /admin/
-Disallow: /private/ 
+Disallow: /private/
+
+# Disallow static assets that don't need indexing
+Disallow: /_next/static/
+Disallow: /favicon.ico
+
+# Disallow Cloudflare scripts
+Disallow: /cdn-cgi/
