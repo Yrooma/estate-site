@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.alamridhafer.com'
+  const baseUrl = 'https://alamridhafer.com'
   
   // قائمة الصفحات الثابتة
   const staticPages = [
@@ -30,4 +30,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   return [...staticPages, ...blogPages]
-} 
+}

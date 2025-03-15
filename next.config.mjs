@@ -2,9 +2,8 @@
 const nextConfig = {
   // الإعدادات الحالية
   images: {
-    domains: ['www.alamridhafer.com'],
+    domains: ['alamridhafer.com'],
     unoptimized: false, // يمكنك تعيين هذا إلى true إذا كنت لا تريد تحسين الصور
-
   },
   
   // إضافة إعدادات SEO
@@ -37,7 +36,31 @@ const nextConfig = {
   // تكوين إعادة التوجيه
   async redirects() {
     return [
-      // يمكنك إضافة إعادة توجيه هنا إذا لزم الأمر
+      // إعادة توجيه من www إلى non-www (الإصدار القياسي)
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.alamridhafer.com',
+          },
+        ],
+        destination: 'https://alamridhafer.com/:path*',
+        permanent: true,
+      },
+      // إعادة توجيه من HTTP إلى HTTPS
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://alamridhafer.com/:path*',
+        permanent: true,
+      },
     ]
   },
 }
