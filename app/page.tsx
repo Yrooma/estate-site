@@ -6,8 +6,8 @@ import { ServiceCard } from "@/components/service-card"
 //import { TestimonialCard } from "@/components/testimonial-card" 
 import { ContactCTA } from "@/components/contact-cta"
 import Image from 'next/image'
-{/*  import { properties } from "@/app/data/properties"*/}
-{/*  import { PropertyCard } from "@/app/components/property-card"*/}
+import { properties } from "@/app/data/properties"
+import { PropertyCard } from "@/components/property-card"
 
 export const metadata = {
   title: 'الرئيسية | أبو عمر للعقار',
@@ -117,19 +117,35 @@ export default function Home() {
         </ul>
       </section>
 
- {/*  
-      <ClientWrapper>
-        <section>
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">آخر العقارات</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {properties.slice(0, 3).map((property) => (
-              <PropertyCard key={property.id} {...property} compact />
+      <div className="my-32">
+        <hr className="border-t border-gray-200 w-1/2 mx-auto opacity-30" />
+      </div>
+
+      <section>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">آخر العقارات المضافة</h2>
+        <div className="relative">
+          <div className="flex overflow-x-auto gap-6 pb-4 scrollbar-hide">
+            {properties.slice(0, 5).map((property) => (
+              <div key={property.id} className="w-[280px] sm:w-[340px] flex-shrink-0">
+                <PropertyCard property={property} compact />
+              </div>
             ))}
+            <div className="w-[280px] sm:w-[340px] flex-shrink-0">
+              <Link href="/properties" className="block h-full">
+                <div className="flex flex-col items-center justify-center h-full bg-muted rounded-lg p-6 text-center hover:bg-gray-200 transition-colors">
+                  <h3 className="text-xl font-bold mb-2">استعراض المزيد</h3>
+                  <p className="text-muted-foreground">شاهد جميع العقارات المتاحة</p>
+                  <div className="mt-4 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8"><path d="m9 18 6-6-6-6"/></svg>
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
-        </section>
-      </ClientWrapper>
-*/}
-{/*
+        </div>
+      </section>
+
+      {/*
 <div className="my-32">
         <hr className="border-t border-gray-200 w-1/2 mx-auto opacity-30" />
       </div>
@@ -173,4 +189,3 @@ export default function Home() {
     </div>
   )
 }
-

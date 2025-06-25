@@ -85,6 +85,14 @@ export default function Header() {
       className="justify-start md:justify-center md:border-none border-b border-gray-100"
       onClick={() => setIsMenuOpen(false)}
     >
+      <Link href="/properties">العقارات</Link>
+    </Button>
+    <Button 
+      variant="ghost" 
+      asChild 
+      className="justify-start md:justify-center md:border-none border-b border-gray-100"
+      onClick={() => setIsMenuOpen(false)}
+    >
       <Link href="/blog">الفوائد</Link>
     </Button>
     <Button 
@@ -102,4 +110,3 @@ export default function Header() {
     </header>
   )
 }
-

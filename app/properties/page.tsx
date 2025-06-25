@@ -1,20 +1,29 @@
-import { PropertyCard } from "@/components/property-card"
-import { properties } from "@/app/data/properties"
+import { Metadata } from 'next';
+import { properties } from "@/app/data/properties";
+import { PropertyFilter } from '@/components/property-filter';
+import { Breadcrumbs } from '@/components/breadcrumbs';
 
-export default async function PropertiesPage() {
-  try {
-    return (
+export const metadata: Metadata = {
+  title: 'قائمة العقارات | أبو عمر للعقار',
+  description: 'تصفح قائمة العقارات المتاحة للبيع والإيجار في مكة والطائف. فلل، شقق، وأراضي سكنية.',
+  keywords: ['عقارات للبيع', 'عقارات للإيجار', 'شقق في مكة', 'فلل في الطائف', 'أراضي سكنية'],
+};
+
+export default function PropertiesPage() {
+  return (
+    <>
+      <Breadcrumbs />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">العقارات المتاحة</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {properties.map((property) => (
-            <PropertyCard key={property.id} {...property} />
-          ))}
-        </div>
+        <header className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">العقارات المتاحة</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            تصفح أحدث العروض العقارية المتوفرة لدينا في مكة المكرمة والطائف. نساعدك في العثور على ما يناسبك.
+          </p>
+        </header>
+        
+        <PropertyFilter properties={properties} />
+        
       </div>
-    )
-  } catch (error) {
-    throw new Error('فشل في تحميل العقارات');
-  }
+    </>
+  );
 }
-

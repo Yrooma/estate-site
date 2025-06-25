@@ -13,28 +13,31 @@ const routeNameMap: { [key: string]: string } = {
   // إضافة ترجمات للمقالات
   'ejar-platform-landlord-rights': 'منصة إيجار: حقوق المؤجر',
   'tawtheeq-ejar-contract': 'توثيق عقد الإيجار'
+};
+
+interface BreadcrumbsProps {
+  lastSegmentName?: string;
 }
 
-export function Breadcrumbs() {
-  const pathname = usePathname()
-  if (pathname === '/') return null
+export function Breadcrumbs({ lastSegmentName }: BreadcrumbsProps) {
+  const pathname = usePathname();
+  if (pathname === '/') return null;
 
-  const pathSegments = pathname.split('/').filter(Boolean)
+  const pathSegments = pathname.split('/').filter(Boolean);
   const breadcrumbs = pathSegments.map((segment, index) => {
-    const href = `/${pathSegments.slice(0, index + 1).join('/')}`
-    const isLast = index === pathSegments.length - 1
+    const href = `/${pathSegments.slice(0, index + 1).join('/')}`;
+    const isLast = index === pathSegments.length - 1;
     
-    // استخدام الاسم من القاموس أو تنظيف الـ slug إذا كان مشفرًا
-    let name = routeNameMap[segment]
-    
-    if (!name) {
+    let name = routeNameMap[segment];
+
+    if (isLast && lastSegmentName) {
+      name = lastSegmentName;
+    } else if (!name) {
       try {
-        // محاولة فك تشفير URL إذا كان يحتوي على أحرف مشفرة
-        const decodedSegment = decodeURIComponent(segment)
-        name = routeNameMap[decodedSegment] || decodedSegment
+        const decodedSegment = decodeURIComponent(segment);
+        name = routeNameMap[decodedSegment] || decodedSegment;
       } catch (e) {
-        // إذا فشل فك التشفير، استخدم القيمة الأصلية
-        name = segment
+        name = segment;
       }
     }
 

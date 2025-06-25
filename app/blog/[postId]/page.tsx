@@ -2,9 +2,9 @@ import Image from 'next/image'
 import { getPost, getAllPosts } from '@/lib/blog'
 import { notFound } from 'next/navigation'
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { ChevronRight } from "lucide-react"
 import Link from 'next/link'
+import { Breadcrumbs } from '@/components/breadcrumbs'
 
 
 export async function generateStaticParams() {
@@ -37,14 +37,14 @@ export default async function BlogPost({ params }: { params: { postId: string } 
   }
 
   return (
-    <article className="container mx-auto px-4 py-8 max-w-4xl">
+    <>
+      <Breadcrumbs lastSegmentName={post.title} />
+      <article className="container mx-auto px-4 py-8 max-w-4xl">
             <div className="mb-8">
-        <Button variant="ghost" asChild>
-          <Link href="/blog" className="flex items-center gap-2">
+        <Link href="/blog" className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700">
             <ChevronRight className="h-4 w-4" />
             العودة إلى المدونة
           </Link>
-        </Button>
       </div>
       {/* صورة الغلاف */}
       <div className="relative aspect-[2/1] mb-8 rounded-lg overflow-hidden">
@@ -101,5 +101,6 @@ export default async function BlogPost({ params }: { params: { postId: string } 
         )}
       </footer>
     </article>
+    </>
   )
 }

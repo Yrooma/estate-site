@@ -1,9 +1,7 @@
 import { Metadata } from 'next'
-import { BlogCard } from '@/components/blog-card'
 import { CategoryFilter } from "@/components/category-filter"
 import { getAllPosts } from '@/lib/blog'
-import type { BlogPost } from '@/types/blog'
-
+import { Breadcrumbs } from '@/components/breadcrumbs'
 
 export const metadata: Metadata = {
   title: 'الفوائد العقارية - أبو عمر للعقار',
@@ -54,13 +52,16 @@ export default async function Blog() {
   )
 
   return (
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-4xl font-bold mb-8 text-center">الفوائد العقارية</h1>
-      
-      <CategoryFilter 
-        categories={allCategories}
-        posts={posts}
-      />
-    </div>
+    <>
+      <Breadcrumbs />
+      <div className="container mx-auto px-6 py-12">
+        <h1 className="text-4xl font-bold mb-8 text-center">الفوائد العقارية</h1>
+        
+        <CategoryFilter 
+          categories={allCategories}
+          posts={posts}
+        />
+      </div>
+    </>
   )
 }

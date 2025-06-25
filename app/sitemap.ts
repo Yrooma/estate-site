@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // إضافة صفحات العقارات
   const propertyPages = properties.map((property) => ({
-    url: `${baseUrl}/properties/${property.id}`,
+    url: `${baseUrl}/properties/${property.slug}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'weekly' as const,
     priority: 0.7,

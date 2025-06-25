@@ -1,12 +1,15 @@
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import Link from 'next/link'
+import { Breadcrumbs } from '@/components/breadcrumbs'
 
 export default function About() {
   return (
-    <div className="container mx-auto px-6 py-12">
-      <div className="text-center mb-12">
-        <Image
+    <>
+      <Breadcrumbs />
+      <div className="container mx-auto px-6 py-12">
+        <div className="text-center mb-12">
+          <Image
           src="/icon-D.svg"
           alt="شعار ظافر أبو حربة العمري"
           width={120}
@@ -83,6 +86,6 @@ export default function About() {
         </Button>
       </section>
     </div>
+    </>
   )
 }
-

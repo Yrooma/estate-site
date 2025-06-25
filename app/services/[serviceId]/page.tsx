@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { Breadcrumbs } from '@/components/breadcrumbs'
 
 const services = [
   { id: 'property-management', title: 'إدارة الأملاك' },
@@ -14,12 +15,14 @@ export default function ServicePage({ params }: { params: { serviceId: string } 
   }
 
   return (
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-4xl font-bold mb-8 text-center">{service.title}</h1>
-      <div className="prose max-w-none">
-        <p>تفاصيل الخدمة ستضاف هنا.</p>
+    <>
+      <Breadcrumbs lastSegmentName={service.title} />
+      <div className="container mx-auto px-6 py-12">
+        <h1 className="text-4xl font-bold mb-8 text-center">{service.title}</h1>
+        <div className="prose max-w-none">
+          <p>تفاصيل الخدمة ستضاف هنا.</p>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
-
