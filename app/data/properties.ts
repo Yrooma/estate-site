@@ -19,7 +19,11 @@ export const properties: Property[] = [
     "images": [
       "/og.jpg",
       "/og.jpg",
-      "/og.jpg"
+      "/og.jpg",
+      "/images/p/50776ac1-6e74-47b0-8612-be8c075c3a81.png",
+      "/images/p/e411a9aa-20b8-4324-a2dd-b2e6cce894de.png",
+      "/images/p/5f9469a8-8dab-4299-a089-cd5f03385aca.png",
+      "/images/p/704a1f0a-29bf-47a8-aa9c-c1cb897d60cf.png"
     ],
     "mainImage": "/og.jpg",
     "keywords": [
