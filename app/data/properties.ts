@@ -216,45 +216,5 @@ export const properties: Property[] = [
       "name": "أبو عمر للعقار",
       "phone": "+966552119915"
     }
-  },
-  {
-    "title": "بيت",
-    "description": "بيت جديد",
-    "price": "2,300,000",
-    "status": "للبيع",
-    "type": "فيلا",
-    "location": {
-      "city": "مكة المكرمة",
-      "district": "الشرائع"
-    },
-    "area": 600,
-    "bedrooms": 3,
-    "bathrooms": 5,
-    "images": [
-      "/images/p/1e565b05-8e49-45f3-82b1-d7562eea0a49.png",
-      "/images/p/03795f1b-a94b-4105-a4ab-f6f676ff31a0.png",
-      "/images/p/c92bbb18-c573-4bbf-b3d6-38afaa1c1371.PNG"
-    ],
-    "keywords": [
-      "بيت",
-      "مكة",
-      "الشرائع",
-      "حد-الحرم"
-    ],
-    "features": [
-      "بيت",
-      "ملك",
-      "جديد",
-      "الشرائع",
-      "حد-الحرم"
-    ],
-    "yearBuilt": 2025,
-    "agent": {
-      "name": "أبو عمر للعقار",
-      "phone": "+966552119915"
-    },
-    "id": 8,
-    "slug": "byt",
-    "mainImage": "/images/p/1e565b05-8e49-45f3-82b1-d7562eea0a49.png"
   }
 ];
