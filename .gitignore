@@ -35,5 +35,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Custom admin pages
+# Custom admin pages and APIs
 /app/admin
+/app/api/add-property
+/app/api/edit-property
+/app/api/delete-property
+/app/api/upload-image
+/app/api/git-push
