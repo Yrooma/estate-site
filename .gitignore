@@ -42,3 +42,5 @@ next-env.d.ts
 /app/api/delete-property
 /app/api/upload-image
 /app/api/git-push
+/app/api/delete-image
+

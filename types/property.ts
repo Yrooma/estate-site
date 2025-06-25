@@ -5,7 +5,7 @@ export interface Property {
   description: string;
   price: string;
   status: 'للبيع' | 'للإيجار' | 'تم البيع' | 'مؤجر';
-  type: 'شقة' | 'فيلا' | 'أرض' | 'عمارة' | 'دور';
+  type: 'شقة' | 'فيلا' | 'أرض' | 'عمارة' | 'دور' | 'حوش' | 'غرفة' | 'محل تجاري';
   location: {
     city: 'مكة المكرمة' | 'الطائف';
     district: string;
